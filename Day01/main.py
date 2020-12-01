@@ -1,48 +1,50 @@
 #!/usr/bin/env python3
 
 import fileinput
+import math
 
 
-def find_sum2(numbers, target):
-    for ia, a in enumerate(numbers):
-        for b in numbers[ia + 1:]:
-            if a + b == target:
-                return a, b
-
-
-def find_sum3(numbers, target):
-    for ia, a in enumerate(numbers):
-        for ib, b in enumerate(numbers[ia + 1:]):
-            for c in numbers[ia + 1:][ib + 1:]:
-                if a + b + c == target:
-                    return a, b, c
+def find_sum(numbers, num_summands, target):
+    if num_summands == 0 and target == 0:
+        return True, []
+    if (num_summands == 0) or (target < 0) or (len(numbers) == 0):
+        return False, None
+    for index, number in enumerate(numbers):
+        found_solution, summands = find_sum(numbers[index+1:], num_summands - 1, target - number)
+        if found_solution:
+            return True, summands + [number]
+    return False, None
 
 
 def test_task1():
     expenses = [1721, 979, 366, 299, 675, 1456]
-    a, b = find_sum2(expenses, 2020)
-    assert a * b == 514579
+    found_solution, summands = find_sum(expenses, 2, 2020)
+    assert found_solution
+    assert math.prod(summands) == 514579
     print('tests for task 1: ok')
 
 
 def solve_task1():
     expenses = [int(line) for line in fileinput.input()]
-    a, b = find_sum2(expenses, 2020)
-    solution = a * b
+    found_solution, summands = find_sum(expenses, 2, 2020)
+    assert found_solution
+    solution = math.prod(summands)
     print(f'answer to task 1: {solution}')
 
 
 def test_task2():
     expenses = [1721, 979, 366, 299, 675, 1456]
-    a, b, c = find_sum3(expenses, 2020)
-    assert a * b * c == 241861950
+    found_solution, summands = find_sum(expenses, 3, 2020)
+    assert found_solution
+    assert math.prod(summands) == 241861950
     print('tests for task 2: ok')
 
 
 def solve_task2():
     expenses = [int(line) for line in fileinput.input()]
-    a, b, c = find_sum3(expenses, 2020)
-    solution = a * b * c
+    found_solution, summands = find_sum(expenses, 3, 2020)
+    assert found_solution
+    solution = math.prod(summands)
     print(f'answer to task 2: {solution}')
 
 
