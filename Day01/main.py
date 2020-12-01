@@ -7,7 +7,7 @@ import math
 def find_sum(numbers, num_summands, target):
     if num_summands == 0 and target == 0:
         return True, []
-    if (num_summands == 0) or (target < 0) or (len(numbers) == 0):
+    if num_summands == 0 or target < 0 or len(numbers) == 0:
         return False, None
     for index, number in enumerate(numbers):
         found_solution, summands = find_sum(numbers[index+1:], num_summands - 1, target - number)
