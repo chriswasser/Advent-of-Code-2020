@@ -1,0 +1,4 @@
+{
+    "python.pythonPath": "${env:HOME}/.local/share/pyenv/versions/Advent-of-Code-2020@3.8.6/bin/python",
+    "python.formatting.autopep8Args": ["--max-line-length", "120"],
+}
