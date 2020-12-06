@@ -11,7 +11,7 @@ Repository for my solutions to the [Advent of Code 2020](https://adventofcode.co
 |   3 |      ✓ |      ✓ |
 |   4 |      ✓ |      ✓ |
 |   5 |      ✓ |      ✓ |
-|   6 |        |        |
+|   6 |      ✓ |      ✓ |
 |   7 |        |        |
 |   8 |        |        |
 |   9 |        |        |
