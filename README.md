@@ -30,4 +30,4 @@ Repository for my solutions to the [Advent of Code 2020](https://adventofcode.co
 |  22 |      ✓ |      ✓ |
 |  23 |      ✓ |      ✓ |
 |  24 |      ✓ |      ✓ |
-|  25 |        |        |
+|  25 |      ✓ |      ✓ |
